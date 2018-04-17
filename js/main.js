@@ -4,9 +4,7 @@
 (function () {
 
     // variables that will be joined   
-    var attrArray = ["2000", "2001", "2002", "2003",
-            "2004", "2005", "2006", "2007", "2008", "2009", "2010",
-            "2011", "2012", "2013", "2014"];
+    var attrArray = [ "Earthquake", "Fire", "Flood", "Hurricane", "Mud/Landslide", "Other", "Severe Ice Storm", "Severe Storms", "Tornado", "Typhoon"];
 
 
     var expressed = attrArray[0];
@@ -65,7 +63,7 @@
             .await(callback);
         
             
-        function callback(error, csvData, counties /*wine*/) {
+        function callback(error, csvData, counties) {
 
             //call set graticule function
             setGraticule(map, path);
@@ -238,7 +236,7 @@
             .attr("height", chartInnerHeight)
             .attr("transform", translate);
 
-        //set bars for each country being evalulated
+        //set bars for each county being evalulated
         var bars = chart.selectAll(".bar")
             .data(csvData)
             .enter()
