@@ -22,7 +22,7 @@
     //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear()
         .range([463, 0])
-        .domain([0, 60]);
+        .domain([0, 16]);
 
     //execute map when page loads
     window.onload = setMap();
@@ -48,7 +48,7 @@
             
         //determine map projection
         var projection = d3.geoAlbers()
-            .scale(250)
+            .scale(1000)
             .translate([width / 2, height / 2]);
         
         //create path generator
@@ -59,26 +59,28 @@
         d3.queue()
             .defer(d3.csv, "data/Disaster_Data_FEMA.csv")
             .defer(d3.json, "data/us_counties.topojson")
-            //.defer(d3.json, "data/WWP.topojson")
+            
             .await(callback);
         
             
-        function callback(error, csvData, counties) {
+        function callback(error, csvData, county) {
 
             //call set graticule function
             setGraticule(map, path);
 
             //translate topojson data 
-            var us_counties = topojson.feature(counties, counties.objects.us_counties).features;
+            var countyMap = topojson.feature(county, county.objects.us_counties).features;
 
             //join topojson and csv data
-            counties = joinData(counties, csvData);
+            countyJoin = joinData(county, csvData);
+
+            console.log(countyMap);
 
             //create color scale
             var colorScale = makeColorScale(csvData);
 
             //add enumeration units
-            setEnumerationUnits(counties, map, path, colorScale);
+            setEnumerationUnits(countyMap, map, path, colorScale);
 
             //add coordinated visualization
             setChart(csvData, colorScale);
@@ -91,6 +93,9 @@
 
             //update charts when data changes
             updateChart(csvData);
+
+            
+            
             
 
         };
