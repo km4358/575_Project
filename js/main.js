@@ -74,7 +74,7 @@
             //join topojson and csv data
             countyJoin = joinData(county, csvData);
 
-            console.log(countyMap);
+            console.log(countyJoin);
 
             //create color scale
             var colorScale = makeColorScale(csvData);
@@ -372,7 +372,7 @@
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Disaster Type by  " + expressed + "."); 
+            .text("Number of " + expressed + "s Declared in (year here) ."); 
     };
 
     function highlight(props){

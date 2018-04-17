@@ -35,7 +35,7 @@ h1{
     text-align: center;
 }
 
-.wineCountry{
+.disasterCounty{
     fill: #ffffff;
     stroke: #999;
     stroke-width: 1px;
@@ -43,7 +43,7 @@ h1{
     
 }
 
-.countries {
+.county {
     fill: #FFF;
     stroke: rgb(0, 0, 0);
     stroke-width: 2px;
