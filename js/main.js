@@ -49,7 +49,7 @@
              .append("g");
             
         //determine map projection
-        var projection = d3.geoNaturalEarth1()
+        var projection = d3.geoAlbers()
             .scale(250)
             .translate([width / 2, height / 2]);
         
@@ -59,28 +59,28 @@
         
         //use queue for asynchronous data loading
         d3.queue()
-            .defer(d3.csv, "data/WWP.csv")
-            .defer(d3.json, "data/worldMapCopy.topojson")
+            .defer(d3.csv, "data/Disaster_Data_FEMA.csv")
+            .defer(d3.json, "data/us_counties.topojson")
             //.defer(d3.json, "data/WWP.topojson")
             .await(callback);
         
             
-        function callback(error, csvData, world /*wine*/) {
+        function callback(error, csvData, counties /*wine*/) {
 
             //call set graticule function
             setGraticule(map, path);
 
             //translate topojson data 
-            var worldCountries = topojson.feature(world, world.objects.worldMapCopy).features;
+            var us_counties = topojson.feature(counties, counties.objects.us_counties).features;
 
             //join topojson and csv data
-            worldCountries = joinData(worldCountries, csvData);
+            counties = joinData(counties, csvData);
 
             //create color scale
             var colorScale = makeColorScale(csvData);
 
             //add enumeration units
-            setEnumerationUnits(worldCountries, map, path, colorScale);
+            setEnumerationUnits(counties, map, path, colorScale);
 
             //add coordinated visualization
             setChart(csvData, colorScale);
@@ -99,39 +99,39 @@
     };
 
     
-    function joinData(worldCountries, csvData) {
+    function joinData(counties, csvData) {
         //loop through csv to collect attributes 
         for (var i = 0; i < csvData.length; i++) {
-            var csvWine = csvData[i];
-            var csvKey = csvWine.NAME;
+            var csvDisaster = csvData[i];
+            var csvKey = csvDisaster.place_name;
 
-            for (var a = 0; a < worldCountries.length; a++) {
-                var geojsonProps = worldCountries[a].properties;
-                var geojsonKey = geojsonProps.NAME;
+            for (var a = 0; a < counties.length; a++) {
+                var geojsonProps = counties[a].properties;
+                var geojsonKey = geojsonProps.place_name;
 
                 if (geojsonKey == csvKey) {
 
                     attrArray.forEach(function(attr){
-                        var val = parseFloat(csvWine[attr]);
+                        var val = parseFloat(csvDisaster[attr]);
                         geojsonProps[attr] = val;
                     });
                 };
             };
         };
      
-        return worldCountries;
+        return counties;
         
     };
 
-    function setEnumerationUnits(worldCountries, map, path, colorScale) {
+    function setEnumerationUnits(counties, map, path, colorScale) {
         
         //add countries for analysis to the map
-        var wineNations = map.selectAll(".wineCountry")
-            .data(worldCountries)
+        var disasterCounties = map.selectAll(".disasterCounty")
+            .data(counties)
             .enter()
             .append("path")
             .attr("class", function (d) {
-                return "wineCountry " + d.properties.NAME;
+                return "disasterCounty " + d.properties.place_name;
             })
             .attr("d", path)
             .style("fill", function(d){
@@ -145,10 +145,10 @@
             })
             .on("mousemove", moveLabel);
 
-            var desc = wineNations.append("desc")
+            var desc = disasterCounties.append("desc")
                 .text('{"stroke": "#000", "stroke-width": "0.5"}');
 
-            console.log(wineNations);
+            console.log(disasterCounties);
 
     };
 
@@ -247,7 +247,7 @@
                 return b[expressed]-a[expressed]
             })
             .attr("class", function (d) {
-                return "bar " + d.NAME;
+                return "bar " + d.place_name;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
             .on("mouseover", highlight)
@@ -309,7 +309,7 @@
         var titleOption = dropdown.append("option")
             .attr("class", "titleOption")
             .attr("disabled", "true")
-            .text("Select Year");
+            .text("Select Disaster Type");
 
         //add attribute name options
         var attrOptions = dropdown.selectAll("attrOptions")
@@ -328,7 +328,7 @@
         var colorScale = makeColorScale(csvData);
 
         //recolor enumeration units
-        var wineCountry = d3.selectAll(".wineCountry")
+        var disasterCounty = d3.selectAll(".disasterCounties")
             .transition()
             .duration(1000)
             .style("fill", function (d) {
@@ -369,13 +369,13 @@
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Top 15 Wine Producing Countries in " + expressed + "."); 
+            .text("Disaster Type by  " + expressed + "."); 
     };
 
     function highlight(props){
 
         //highlight enumeration units and bars
-        var selected = d3.selectAll("." + props.NAME)
+        var selected = d3.selectAll("." + props.place_name)
             .style("stroke", "#54278f")
             .style("stroke-width", "3");
 
@@ -385,7 +385,7 @@
     function dehighlight(props) {
 
         //remove highlighting when mouse leaves enum unit or bar 
-        var selected = d3.selectAll("." + props.NAME)
+        var selected = d3.selectAll("." + props.place_name)
             .style("stroke", function () {
                 return getStyle(this, "stroke")
             })
@@ -410,7 +410,7 @@
     function setLabel(props, csvData){
         
         //name attributes filtered to replace underscore with space 
-        var labelName = props.NAME;
+        var labelName = props.place_name;
         var labelParse = labelName.replace(/_/g, ' '); 
 
         //if statement to specifically add attributes once dropdown menu item is activated 
@@ -418,27 +418,27 @@
             //second if statement to add attribute data only to countries being evaluated 
             if (props[expressed] > 0) {
                 var labelAttribute = "<h2>" + labelParse +
-                    "</h2><b>" + "Wine produced in " + expressed + ": " + props[expressed] + " Million Hectoliters" + "</b>";
+                    "</h2><b>" + "Total Disasters in " + expressed + ": " + props[expressed] + " (year?)" + "</b>";
                 }
                 else{
                     var labelAttribute = "<h2>" + labelParse +
-                "</h2><b>" + "Not ranked in the top 15 wine producing countries." + "</b>";
+                "</h2><b>" + "No disasters recorded for this year." + "</b>";
                 };
         }else{
             var labelAttribute = "<h2>" + labelParse +
-                "</h2><b>" + "Click dropdown menu to begin viewing production figures." + "</b>";
+                "</h2><b>" + "Click dropdown menu to begin viewing disaster figures." + "</b>";
 
         };
         //create info label div
         var infolabel = d3.select("body")
             .append("div")
             .attr("class", "infolabel")
-            .attr("id", props.NAME + "_label")
+            .attr("id", props.place_name + "_label")
             .html(labelAttribute);
     
-        var countryName = infolabel.append("div")
+        var countyName = infolabel.append("div")
             .attr("class", "labelname")
-            .html(props.name);
+            .html(props.place_name);
     };
 
     function moveLabel(){
