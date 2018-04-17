@@ -32,7 +32,7 @@
         
         //create map frame dimensions
         var width = window.innerWidth * 0.5,
-            height = 700;
+            height = 520;
 
         //create svg container    
         var map = d3.select("body")
@@ -47,8 +47,8 @@
              .append("g");
             
         //determine map projection
-        var projection = d3.geoAlbers()
-            .scale(1000)
+        var projection = d3.geoAlbersUsa()
+            .scale(1100)
             .translate([width / 2, height / 2]);
         
         //create path generator
