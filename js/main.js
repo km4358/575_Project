@@ -158,11 +158,11 @@
     function makeColorScale(data){
         //assign colors
         var colorClasses = [
-        "#fda79b",
-        "#fb5c56",
-        "#e83e14",
-        "#b21a18",
-        "#722f37"
+        "#ffb3b3",
+        "#ff8080",
+        "#ff1a1a",
+        "#cc0000",
+        "#990000"
         ];
 
         //create color generator
@@ -250,7 +250,7 @@
                 return b[expressed]-a[expressed]
             })
             .attr("class", function (d) {
-                return "bar " + d.place_name;
+                return "bar " + d.year;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
             .on("mouseover", highlight)
