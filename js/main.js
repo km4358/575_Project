@@ -372,7 +372,7 @@
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Number of " + expressed + "s Declared in (year here) ."); 
+            .text("Number of " + expressed + "s Declared (2002-2018)"); 
     };
 
     function highlight(props){
