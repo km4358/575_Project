@@ -57,7 +57,7 @@
         
         //use queue for asynchronous data loading
         d3.queue()
-            .defer(d3.csv, "data/Disaster_Data_FEMA.csv")
+            .defer(d3.csv, "data/disaster_output.csv")
             .defer(d3.json, "data/us_counties.topojson")
             
             .await(callback);
