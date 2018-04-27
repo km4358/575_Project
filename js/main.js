@@ -58,29 +58,29 @@
         //use queue for asynchronous data loading
         d3.queue()
             .defer(d3.csv, "data/disaster_output.csv")
-            .defer(d3.json, "data/us_counties.topojson")
+            .defer(d3.json, "data/us_states.topojson")
             
             .await(callback);
         
             
-        function callback(error, csvData, county) {
+        function callback(error, csvData, state) {
 
             //call set graticule function
             setGraticule(map, path);
 
             //translate topojson data 
-            var countyMap = topojson.feature(county, county.objects.us_counties).features;
+            var stateMap = topojson.feature(state, state.objects.us_states).features;
 
             //join topojson and csv data
-            countyJoin = joinData(county, csvData);
+            stateJoin = joinData(state, csvData);
 
-            console.log(countyJoin);
+            console.log(stateJoin);
 
             //create color scale
             var colorScale = makeColorScale(csvData);
 
             //add enumeration units
-            setEnumerationUnits(countyMap, map, path, colorScale);
+            setEnumerationUnits(stateMap, map, path, colorScale);
 
             //add coordinated visualization
             setChart(csvData, colorScale);
@@ -102,15 +102,15 @@
     };
 
     
-    function joinData(counties, csvData) {
+    function joinData(states, csvData) {
         //loop through csv to collect attributes 
         for (var i = 0; i < csvData.length; i++) {
             var csvDisaster = csvData[i];
-            var csvKey = csvDisaster.place_name;
+            var csvKey = csvDisaster.state;
 
-            for (var a = 0; a < counties.length; a++) {
-                var geojsonProps = counties[a].properties;
-                var geojsonKey = geojsonProps.place_name;
+            for (var a = 0; a < states.length; a++) {
+                var geojsonProps = states[a].properties;
+                var geojsonKey = geojsonProps.STUSPS;
 
                 if (geojsonKey == csvKey) {
 
@@ -122,19 +122,19 @@
             };
         };
      
-        return counties;
+        return states;
         
     };
 
-    function setEnumerationUnits(counties, map, path, colorScale) {
+    function setEnumerationUnits(states, map, path, colorScale) {
         
         //add countries for analysis to the map
-        var disasterCounties = map.selectAll(".disasterCounty")
-            .data(counties)
+        var disasterStates = map.selectAll(".disasterStates")
+            .data(states)
             .enter()
             .append("path")
             .attr("class", function (d) {
-                return "disasterCounty " + d.properties.place_name;
+                return "disasterState " + d.properties.STUSPS;
             })
             .attr("d", path)
             .style("fill", function(d){
@@ -148,10 +148,10 @@
             })
             .on("mousemove", moveLabel);
 
-            var desc = disasterCounties.append("desc")
+            var desc = disasterStates.append("desc")
                 .text('{"stroke": "#000", "stroke-width": "0.5"}');
 
-            console.log(disasterCounties);
+            console.log(disasterStates);
 
     };
 
@@ -331,7 +331,7 @@
         var colorScale = makeColorScale(csvData);
 
         //recolor enumeration units
-        var disasterCounty = d3.selectAll(".disasterCounties")
+        var disasterState = d3.selectAll(".disasterState")
             .transition()
             .duration(1000)
             .style("fill", function (d) {
@@ -378,7 +378,7 @@
     function highlight(props){
 
         //highlight enumeration units and bars
-        var selected = d3.selectAll("." + props.place_name)
+        var selected = d3.selectAll("." + props.STUSPS)
             .style("stroke", "#54278f")
             .style("stroke-width", "3");
 
@@ -388,7 +388,7 @@
     function dehighlight(props) {
 
         //remove highlighting when mouse leaves enum unit or bar 
-        var selected = d3.selectAll("." + props.place_name)
+        var selected = d3.selectAll("." + props.STUSPS)
             .style("stroke", function () {
                 return getStyle(this, "stroke")
             })
@@ -413,7 +413,7 @@
     function setLabel(props, csvData){
         
         //name attributes filtered to replace underscore with space 
-        var labelName = props.place_name;
+        var labelName = props.NAME;
         var labelParse = labelName.replace(/_/g, ' '); 
 
         //if statement to specifically add attributes once dropdown menu item is activated 
@@ -436,12 +436,12 @@
         var infolabel = d3.select("body")
             .append("div")
             .attr("class", "infolabel")
-            .attr("id", props.place_name + "_label")
+            .attr("id", props.NAME + "_label")
             .html(labelAttribute);
     
         var countyName = infolabel.append("div")
             .attr("class", "labelname")
-            .html(props.place_name);
+            .html(props.NAME);
     };
 
     function moveLabel(){
