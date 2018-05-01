@@ -3,8 +3,9 @@
 //self-executing anonymous function
 (function () {
 
+    var attrArray = ["Severe Storms","Hurricanes","Earthquakes","Fires","Floods","Landslides","Other Disasters","Ice Storms","Tornadoes","Typhoons"];
     // variables that will be joined   
-    var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
+    /*var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
     "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
     "severestorms_2017","severestorms_2018","hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
     "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018",
@@ -23,63 +24,59 @@
 
     var severesStorms = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
     "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
-    "severestorms_2017","severestorms_2018"];
+    "severestorms_2017","severestorms_2018"];*/
 
-    severesStorms = "Severe Storms";
+    /*var hurricane = ["hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
+    "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018"];*/
 
-    var hurricane = ["hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
-    "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018"];
+   /*  var earthquake = ["earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010",
+    "earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018"]; */
 
-    hurricane = "Hurricanes";
+   
 
-    var earthquake = ["earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010",
-    "earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018"];
-
-    earthquake = "Earthquakes";
-
-    var fire = ["fire_2002","fire_2003",
+   /*  var fire = ["fire_2002","fire_2003",
     "fire_2004","fire_2005","fire_2006","fire_2007","fire_2008","fire_2009","fire_2010","fire_2011","fire_2012","fire_2013","fire_2014","fire_2015","fire_2016","fire_2017",
     "fire_2018"];
+ */
+   
 
-    fire = "Fires";
+    /* var flood = ["flood_2002","flood_2003","flood_2004","flood_2005","flood_2006","flood_2007","flood_2008","flood_2009","flood_2010","flood_2011","flood_2012","flood_2013",
+    "flood_2014","flood_2015","flood_2016","flood_2017","flood_2018"]; */
 
-    var flood = ["flood_2002","flood_2003","flood_2004","flood_2005","flood_2006","flood_2007","flood_2008","flood_2009","flood_2010","flood_2011","flood_2012","flood_2013",
-    "flood_2014","flood_2015","flood_2016","flood_2017","flood_2018"];
+   
 
-    flood = "Floods";
-
-    var landslide = ["landslide_2002","landslide_2003","landslide_2004","landslide_2005","landslide_2006","landslide_2007",
+    /* var landslide = ["landslide_2002","landslide_2003","landslide_2004","landslide_2005","landslide_2006","landslide_2007",
     "landslide_2008","landslide_2009","landslide_2010","landslide_2011","landslide_2012","landslide_2013","landslide_2014","landslide_2015","landslide_2016","landslide_2017",
     "landslide_2018"];
+ */
+    
 
-    landslide = "Landslides";
-
-    var other = ["other_2002","other_2003","other_2004","other_2005","other_2006","other_2007","other_2008","other_2009","other_2010","other_2011","other_2012",
+    /* var other = ["other_2002","other_2003","other_2004","other_2005","other_2006","other_2007","other_2008","other_2009","other_2010","other_2011","other_2012",
     "other_2013","other_2014","other_2015","other_2016","other_2017","other_2018"];
+ */
+    
 
-    other = "Other Disasters";
-
-    var ice = ["ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009",
+    /* var ice = ["ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009",
     "ice_2010","ice_2011","ice_2012","ice_2013","ice_2014","ice_2015","ice_2016","ice_2017","ice_2018"];
+ */
+    
 
-    ice = "Ice Storms";
+    /* var tornado = ["tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006",
+    "tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018"]; */
 
-    var tornado = ["tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006",
-    "tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018"];
+    
 
-    tornado = "Tornados";
+    /* var typhoon = ["typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
+    "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"]; */
 
-    var typhoon = ["typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
-    "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"];
+   
 
-    typhoon = "Typhoons";
+    //var disasterArray = [earthquake, fire, flood, hurricane, landslide, other, ice, severesStorms, tornado, typhoon];
 
-    var disasterArray = [earthquake, fire, flood, hurricane, landslide, other, ice, severesStorms, tornado, typhoon];
-
-    var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
+    //var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
 
     var expressed = attrArray[0];
-    var disasterExpressed = disasterArray[0];
+    //var disasterExpressed = disasterArray[0];
 
     //create chart dimensions
     var chartWidth = window.innerWidth * 0.425,
@@ -94,7 +91,7 @@
     //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear()
         .range([463, 0])
-        .domain([0, 16]);
+        .domain([0, 350]);
 
     //execute map when page loads
     window.onload = setMap();
@@ -114,8 +111,8 @@
             .attr("height", height)
             //add zoom and pan functionality to map
             .call(d3.zoom().on("zoom", function () {
-                map.attr("transform", d3.event.transform)
-             }))
+                map.attr("transform", d3.event.transform);
+            }))
              .append("g");
             
         //determine map projection
@@ -129,7 +126,7 @@
         
         //use queue for asynchronous data loading
         d3.queue()
-            .defer(d3.csv, "data/disaster_output.csv")
+            .defer(d3.csv, "data/disaster_test.csv")
             .defer(d3.json, "data/us_states.topojson")
             
             .await(callback);
@@ -144,9 +141,9 @@
             var stateMap = topojson.feature(state, state.objects.us_states).features;
 
             //join topojson and csv data
-            stateJoin = joinData(state, csvData);
+            stateMap = joinData(stateMap, csvData);
 
-            console.log(stateJoin);
+            //console.log(stateJoin);
 
             //create color scale
             var colorScale = makeColorScale(csvData);
@@ -174,14 +171,14 @@
     };
 
     
-    function joinData(states, csvData) {
+    function joinData(stateMap, csvData) {
         //loop through csv to collect attributes 
         for (var i = 0; i < csvData.length; i++) {
             var csvDisaster = csvData[i];
             var csvKey = csvDisaster.state;
 
-            for (var a = 0; a < states.length; a++) {
-                var geojsonProps = states[a].properties;
+            for (var a = 0; a < stateMap.length; a++) {
+                var geojsonProps = stateMap[a].properties;
                 var geojsonKey = geojsonProps.STUSPS;
 
                 if (geojsonKey == csvKey) {
@@ -194,15 +191,15 @@
             };
         };
      
-        return states;
+        return stateMap;
         
     };
 
-    function setEnumerationUnits(states, map, path, colorScale) {
+    function setEnumerationUnits(stateMap, map, path, colorScale) {
         
         //add countries for analysis to the map
         var disasterStates = map.selectAll(".disasterStates")
-            .data(states)
+            .data(stateMap)
             .enter()
             .append("path")
             .attr("class", function (d) {
@@ -210,7 +207,7 @@
             })
             .attr("d", path)
             .style("fill", function(d){
-                return colorScale(d.properties[disasterExpressed]);
+                return colorScale(d.properties[expressed]);
             })
             .on("mouseover", function(d){
                 highlight(d.properties);
@@ -241,10 +238,12 @@
         var colorScale = d3.scaleThreshold()
             .range(colorClasses);
 
+
+        
         //build array of values
         var domainArray = [];
         for (var i = 0; i < data.length; i++) {
-            var val = parseFloat(data[i][disasterExpressed])
+            var val = parseFloat(data[i][expressed])
             domainArray.push(val);
         };
             
@@ -269,13 +268,13 @@
     //function to test for data value and return color
     function choropleth(props, colorScale) {
         //make sure attribute value is a number
-        var val = parseFloat(props[disasterExpressed]);
+        var val = parseFloat(props[expressed]);
         //if attribute value exists, assign a color; otherwise assign white
-        if (typeof val == "number" && !isNaN(val)) {
+        if (typeof val === "number" && !isNaN(val)) {
             return colorScale(val);
         } else {
             return "#FFFF";
-        };
+        }
     };    
 
     //create graticule
@@ -313,16 +312,16 @@
             .attr("height", chartInnerHeight)
             .attr("transform", translate);
 
-        //set bars for each county being evalulated
+        //set bars for each state being evalulated
         var bars = chart.selectAll(".bar")
             .data(csvData)
             .enter()
             .append("rect")
             .sort(function(a, b){
-                return b[disasterExpressed]-a[disasterExpressed]
+                return b[expressed]-a[expressed];
             })
             .attr("class", function (d) {
-                return "bar " + d.year;
+                return "bar " + d.state;
             })
             .attr("width", chartInnerWidth / csvData.length - 1)
             .on("mouseover", highlight)
@@ -332,10 +331,10 @@
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
             })
             .attr("height", function (d, i) {
-                return 463-yScale(parseFloat(d[disasterExpressed]));
+                return 463-yScale(parseFloat(d[expressed]));
             })
             .attr("y", function (d, i) {
-                return yScale(parseFloat(d[disasterExpressed])) ;
+                return yScale(parseFloat(d[expressed])) ;
             })
             .style("fill", function (d) {
                 return choropleth(d, colorScale);
@@ -348,12 +347,12 @@
         var chartTitle = chart.append("text")
             .attr("x", 150)
             .attr("y", 40)
-            .attr("class", "chartTitle")
-           
+            .attr("class", "chartTitle");
+
         //create vertical axis generator
         var yAxis = d3.axisLeft()
-            .scale(yScale)
-            
+            .scale(yScale);
+
         //place axis
         var axis = chart.append("g")
             .attr("class", "axis")
@@ -377,7 +376,7 @@
             .append("select")
             .attr("class", "dropdown")
             .on("change", function(){
-                changeAttribute(this.value, csvData)
+                changeAttribute(this.value, csvData);
             });            
 
         //add initial option
@@ -388,7 +387,7 @@
 
         //add attribute name options
         var attrOptions = dropdown.selectAll("attrOptions")
-            .data(disasterArray)
+            .data(attrArray)
             .enter()
             .append("option")
             .attr("value", function (d) { return d })
@@ -397,7 +396,7 @@
 
     function changeAttribute(attribute, csvData) {
         //change the expressed attribute
-        disasterExpressed = attribute;
+        expressed = attribute;
 
         //recreate the color scale
         var colorScale = makeColorScale(csvData);
@@ -407,18 +406,18 @@
             .transition()
             .duration(1000)
             .style("fill", function (d) {
-                return choropleth(d.properties, colorScale)
+                return choropleth(d.properties, colorScale);
             });
         
         //re-configure bars 
         var bars = d3.selectAll(".bar")
             //re-sort bars
             .sort(function (a, b) {
-                return b[disasterExpressed] - a[disasterExpressed];
+                return b[expressed] - a[expressed];
             })
             .transition()
             .delay(function(d, i){
-                return i * 20
+                return i * 20;
             })
             .duration(500);
 
@@ -433,10 +432,10 @@
             })
             //size/resize bars
             .attr("height", function(d, i){
-                return 463 - yScale(parseFloat(d[disasterExpressed]));
+                return 463 - yScale(parseFloat(d[expressed]));
             })
             .attr("y", function(d, i){
-                return yScale(parseFloat(d[disasterExpressed])) + topBottomPadding;
+                return yScale(parseFloat(d[expressed])) + topBottomPadding;
             })
             //color/recolor bars
             .style("fill", function(d){
@@ -444,10 +443,10 @@
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Number of " + disasterExpressed + " Declared (2002-2018)"); 
+            .text("Number of " + expressed + " Declared (2002-2018)"); 
     };
 
-    function highlight(props){
+    function highlight(props, csv){
 
         //highlight enumeration units and bars
         var selected = d3.selectAll("." + props.STUSPS)
@@ -462,10 +461,10 @@
         //remove highlighting when mouse leaves enum unit or bar 
         var selected = d3.selectAll("." + props.STUSPS)
             .style("stroke", function () {
-                return getStyle(this, "stroke")
+                return getStyle(this, "stroke");
             })
             .style("stroke-width", function () {
-                return getStyle(this, "stroke-width")
+                return getStyle(this, "stroke-width");
             });
 
         function getStyle(element, styleName) {
@@ -486,23 +485,23 @@
         
         //name attributes filtered to replace underscore with space 
         var labelName = props.NAME;
-        var labelParse = labelName.replace(/_/g, ' '); 
+        //var labelParse = labelName.replace(/_/g, ' '); 
 
         //if statement to specifically add attributes once dropdown menu item is activated 
-        if ([disasterExpressed] > 0){
-            //second if statement to add attribute data only to countries being evaluated 
-            if (props[disasterExpressed] > 0) {
-                var labelAttribute = "<h2>" + labelParse +
-                    "</h2><b>" + "Total " + disasterExpressed + "declared in (year)." + "</b>";
-                }
-                else{
-                    var labelAttribute = "<h2>" + labelParse +
-                "</h2><b>" + "No disasters recorded for this year." + "</b>";
-                };
-        }else{
-            var labelAttribute = "<h2>" + labelParse +
+        var labelAttribute;
+        if ([expressed] != expressed) {
+            labelAttribute = "<h2>" + labelName +
                 "</h2><b>" + "Click dropdown menu to begin viewing disaster figures." + "</b>";
 
+        } else {
+            //second if statement to add attribute data only to countries being evaluated 
+            if (props[expressed] > 0) {
+                labelAttribute = "<h2>" + labelName +
+                    "</h2><b>" + "Total " + expressed + " Declared: " + props[expressed] + "</b>";
+            } else {
+                labelAttribute = "<h2>" + labelName +
+                    "</h2><b>" + "No disasters declared for this type." + "</b>";
+            };
         };
         //create info label div
         var infolabel = d3.select("body")
@@ -511,9 +510,9 @@
             .attr("id", props.NAME + "_label")
             .html(labelAttribute);
     
-        var stateName = infolabel.append("div")
+        /*var stateName = infolabel.append("div")
             .attr("class", "labelname")
-            .html(props.NAME);
+            .html(props.NAME);*/
     };
 
     function moveLabel(){
