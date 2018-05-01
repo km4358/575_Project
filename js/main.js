@@ -444,7 +444,7 @@
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Number of " + disasterExpressed + "s Declared (2002-2018)"); 
+            .text("Number of " + disasterExpressed + " Declared (2002-2018)"); 
     };
 
     function highlight(props){
