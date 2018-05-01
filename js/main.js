@@ -138,7 +138,7 @@
         function callback(error, csvData, state) {
 
             //call set graticule function
-            setGraticule(map, path);
+            //setGraticule(map, path);
 
             //translate topojson data 
             var stateMap = topojson.feature(state, state.objects.us_states).features;
@@ -279,7 +279,7 @@
     };    
 
     //create graticule
-    function setGraticule(map, path) {
+    /*function setGraticule(map, path) {
         var graticule = d3.geoGraticule()
             .step([5, 5]);
 
@@ -295,7 +295,7 @@
             .attr("class", "gratlines")
             .attr("d", path);
         
-    };
+    };*/
 
     function setChart(csvData, colorScale) {
         
