@@ -4,9 +4,82 @@
 (function () {
 
     // variables that will be joined   
-var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008","severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016","severestorms_2017","severestorms_2018","hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008","hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018","earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010","earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018","fire_2002","fire_2003","fire_2004","fire_2005","fire_2006","fire_2007","fire_2008","fire_2009","fire_2010","fire_2011","fire_2012","fire_2013","fire_2014","fire_2015","fire_2016","fire_2017","fire_2018","flood_2002","flood_2003","flood_2004","flood_2005","flood_2006","flood_2007","flood_2008","flood_2009","flood_2010","flood_2011","flood_2012","flood_2013","flood_2014","flood_2015","flood_2016","flood_2017","flood_2018","landslide_2002","landslide_2003","landslide_2004","landslide_2005","landslide_2006","landslide_2007","landslide_2008","landslide_2009","landslide_2010","landslide_2011","landslide_2012","landslide_2013","landslide_2014","landslide_2015","landslide_2016","landslide_2017","landslide_2018","other_2002","other_2003","other_2004","other_2005","other_2006","other_2007","other_2008","other_2009","other_2010","other_2011","other_2012","other_2013","other_2014","other_2015","other_2016","other_2017","other_2018","ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009","ice_2010","ice_2011","ice_2012","ice_2013","ice_2014","ice_2015","ice_2016","ice_2017","ice_2018","tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006","tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018","typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012","typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"];
+    var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
+    "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
+    "severestorms_2017","severestorms_2018","hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
+    "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018",
+    "earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010",
+    "earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018","fire_2002","fire_2003",
+    "fire_2004","fire_2005","fire_2006","fire_2007","fire_2008","fire_2009","fire_2010","fire_2011","fire_2012","fire_2013","fire_2014","fire_2015","fire_2016","fire_2017",
+    "fire_2018","flood_2002","flood_2003","flood_2004","flood_2005","flood_2006","flood_2007","flood_2008","flood_2009","flood_2010","flood_2011","flood_2012","flood_2013",
+    "flood_2014","flood_2015","flood_2016","flood_2017","flood_2018","landslide_2002","landslide_2003","landslide_2004","landslide_2005","landslide_2006","landslide_2007",
+    "landslide_2008","landslide_2009","landslide_2010","landslide_2011","landslide_2012","landslide_2013","landslide_2014","landslide_2015","landslide_2016","landslide_2017",
+    "landslide_2018","other_2002","other_2003","other_2004","other_2005","other_2006","other_2007","other_2008","other_2009","other_2010","other_2011","other_2012",
+    "other_2013","other_2014","other_2015","other_2016","other_2017","other_2018","ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009",
+    "ice_2010","ice_2011","ice_2012","ice_2013","ice_2014","ice_2015","ice_2016","ice_2017","ice_2018","tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006",
+    "tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018",
+    "typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
+    "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"];
+
+    var severesStorms = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
+    "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
+    "severestorms_2017","severestorms_2018"];
+
+    severesStorms = "Severe Storms";
+
+    var hurricane = ["hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
+    "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018"];
+
+    hurricane = "Hurricanes";
+
+    var earthquake = ["earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010",
+    "earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018"];
+
+    earthquake = "Earthquakes";
+
+    var fire = ["fire_2002","fire_2003",
+    "fire_2004","fire_2005","fire_2006","fire_2007","fire_2008","fire_2009","fire_2010","fire_2011","fire_2012","fire_2013","fire_2014","fire_2015","fire_2016","fire_2017",
+    "fire_2018"];
+
+    fire = "Fires";
+
+    var flood = ["flood_2002","flood_2003","flood_2004","flood_2005","flood_2006","flood_2007","flood_2008","flood_2009","flood_2010","flood_2011","flood_2012","flood_2013",
+    "flood_2014","flood_2015","flood_2016","flood_2017","flood_2018"];
+
+    flood = "Floods";
+
+    var landslide = ["landslide_2002","landslide_2003","landslide_2004","landslide_2005","landslide_2006","landslide_2007",
+    "landslide_2008","landslide_2009","landslide_2010","landslide_2011","landslide_2012","landslide_2013","landslide_2014","landslide_2015","landslide_2016","landslide_2017",
+    "landslide_2018"];
+
+    landslide = "Landslides";
+
+    var other = ["other_2002","other_2003","other_2004","other_2005","other_2006","other_2007","other_2008","other_2009","other_2010","other_2011","other_2012",
+    "other_2013","other_2014","other_2015","other_2016","other_2017","other_2018"];
+
+    other = "Other Disasters";
+
+    var ice = ["ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009",
+    "ice_2010","ice_2011","ice_2012","ice_2013","ice_2014","ice_2015","ice_2016","ice_2017","ice_2018"];
+
+    ice = "Ice Storms";
+
+    var tornado = ["tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006",
+    "tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018"];
+
+    tornado = "Tornados";
+
+    var typhoon = ["typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
+    "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"];
+
+    typhoon = "Typhoons";
+
+    var disasterArray = [earthquake, fire, flood, hurricane, landslide, other, ice, severesStorms, tornado, typhoon];
+
+
 
     var expressed = attrArray[0];
+    var disasterExpressed = disasterArray[0];
 
     //create chart dimensions
     var chartWidth = window.innerWidth * 0.425,
@@ -137,7 +210,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
             })
             .attr("d", path)
             .style("fill", function(d){
-                return colorScale(d.properties[expressed]);
+                return colorScale(d.properties[disasterExpressed]);
             })
             .on("mouseover", function(d){
                 highlight(d.properties);
@@ -171,7 +244,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
         //build array of values
         var domainArray = [];
         for (var i = 0; i < data.length; i++) {
-            var val = parseFloat(data[i][expressed])
+            var val = parseFloat(data[i][disasterExpressed])
             domainArray.push(val);
         };
             
@@ -196,7 +269,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
     //function to test for data value and return color
     function choropleth(props, colorScale) {
         //make sure attribute value is a number
-        var val = parseFloat(props[expressed]);
+        var val = parseFloat(props[disasterExpressed]);
         //if attribute value exists, assign a color; otherwise assign white
         if (typeof val == "number" && !isNaN(val)) {
             return colorScale(val);
@@ -246,7 +319,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
             .enter()
             .append("rect")
             .sort(function(a, b){
-                return b[expressed]-a[expressed]
+                return b[disasterExpressed]-a[disasterExpressed]
             })
             .attr("class", function (d) {
                 return "bar " + d.year;
@@ -259,10 +332,10 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
                 return i * (chartInnerWidth / csvData.length) + leftPadding;
             })
             .attr("height", function (d, i) {
-                return 463-yScale(parseFloat(d[expressed]));
+                return 463-yScale(parseFloat(d[disasterExpressed]));
             })
             .attr("y", function (d, i) {
-                return yScale(parseFloat(d[expressed])) ;
+                return yScale(parseFloat(d[disasterExpressed])) ;
             })
             .style("fill", function (d) {
                 return choropleth(d, colorScale);
@@ -315,7 +388,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
 
         //add attribute name options
         var attrOptions = dropdown.selectAll("attrOptions")
-            .data(attrArray)
+            .data(disasterArray)
             .enter()
             .append("option")
             .attr("value", function (d) { return d })
@@ -324,7 +397,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
 
     function changeAttribute(attribute, csvData) {
         //change the expressed attribute
-        expressed = attribute;
+        disasterExpressed = attribute;
 
         //recreate the color scale
         var colorScale = makeColorScale(csvData);
@@ -341,7 +414,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
         var bars = d3.selectAll(".bar")
             //re-sort bars
             .sort(function (a, b) {
-                return b[expressed] - a[expressed];
+                return b[disasterExpressed] - a[disasterExpressed];
             })
             .transition()
             .delay(function(d, i){
@@ -360,10 +433,10 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
             })
             //size/resize bars
             .attr("height", function(d, i){
-                return 463 - yScale(parseFloat(d[expressed]));
+                return 463 - yScale(parseFloat(d[disasterExpressed]));
             })
             .attr("y", function(d, i){
-                return yScale(parseFloat(d[expressed])) + topBottomPadding;
+                return yScale(parseFloat(d[disasterExpressed])) + topBottomPadding;
             })
             //color/recolor bars
             .style("fill", function(d){
@@ -371,7 +444,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Number of " + expressed + "s Declared (2002-2018)"); 
+            .text("Number of " + disasterExpressed + "s Declared (2002-2018)"); 
     };
 
     function highlight(props){
@@ -416,11 +489,11 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
         var labelParse = labelName.replace(/_/g, ' '); 
 
         //if statement to specifically add attributes once dropdown menu item is activated 
-        if ([expressed] > 0){
+        if ([disasterExpressed] > 0){
             //second if statement to add attribute data only to countries being evaluated 
-            if (props[expressed] > 0) {
+            if (props[disasterExpressed] > 0) {
                 var labelAttribute = "<h2>" + labelParse +
-                    "</h2><b>" + "Total Disasters in " + expressed + ": " + props[expressed] + " (year?)" + "</b>";
+                    "</h2><b>" + "Total " + disasterExpressed + "declared in (year)." + "</b>";
                 }
                 else{
                     var labelAttribute = "<h2>" + labelParse +
@@ -438,7 +511,7 @@ var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","se
             .attr("id", props.NAME + "_label")
             .html(labelAttribute);
     
-        var countyName = infolabel.append("div")
+        var stateName = infolabel.append("div")
             .attr("class", "labelname")
             .html(props.NAME);
     };
