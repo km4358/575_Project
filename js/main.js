@@ -94,7 +94,7 @@
     //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear()
         .range([463, 0])
-        .domain([0, 16]);
+        .domain([0, 175]);
 
     //execute map when page loads
     window.onload = setMap();
@@ -120,7 +120,7 @@
             
         //determine map projection
         var projection = d3.geoAlbersUsa()
-            .scale(950)
+            .scale(1000)
             .translate([width / 2, height / 2]);
         
         //create path generator
