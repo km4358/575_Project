@@ -120,7 +120,7 @@
             
         //determine map projection
         var projection = d3.geoAlbersUsa()
-            .scale(1100)
+            .scale(1000)
             .translate([width / 2, height / 2]);
         
         //create path generator
