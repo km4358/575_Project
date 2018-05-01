@@ -119,14 +119,13 @@ option {
 
 .infolabel {
     position: absolute;
-     font-family: 'Archivo Narrow', sans-serif;
-    /*height: 50px;*/
+    height: 50px;
     min-width: 100px;
     color: #fff;
-    background-color:#cc0000;
-    border: solid thin #fff;
+    background-color: rgba(1,1,1,0.5);
+    border: solid thin: rgba(1,1,1,0.5);
     padding: 5px 10px;
-    top: -75px;
+font-family: 'Archivo Narrow', sans-serif;
 }
 
 .infolabel h2 {
