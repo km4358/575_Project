@@ -6,10 +6,18 @@ body{
 
 h1{
     color: #cc0000;
-     font-family: 'Archivo Narrow', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
     font-weight: 700;
     letter-spacing: 0.05em;
 }
+
+#title{
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1.5em;
+	text-align: center;
+    font-weight: bold;   
+}
+
 
 #descript{
     font-family: 'Archivo Narrow', sans-serif;
@@ -27,12 +35,6 @@ h1{
     font-size: 0.9em;
 }
 
-#title{
-     font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-}
 
 .disasterCounty{
     fill: #ffffff;
