@@ -32,8 +32,6 @@
         years.push(split[1]);
     }
 
-    console.log(years);
-
     var uniqueYears = [];
     $.each(years, function(i, el){
         if($.inArray(el, uniqueYears) === -1) uniqueYears.push(el);
@@ -45,6 +43,9 @@
     $.each(disasterType, function(i, el){
         if($.inArray(el, uniqueDisaster) === -1) uniqueDisaster.push(el);
     });
+
+    var uniqueDisaster = {earthquake:  "Earthquakes", fire: "Fires", flood: "Floods", hurricane: "Hurricanes", landslide: "Landslides", other: "Other Disasters",
+    ice: "Ice Storms", severestorms: "Severe Storms", tornado: "Tornadoes", typhoon: "Typhoons", severestorms: "Severe Storms"};
 
     console.log(uniqueDisaster);
 
@@ -101,7 +102,7 @@
 
     //var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
 
-    var expressed = attrArray[0];
+    var expressed = uniqueDisaster[0];
     //var disasterExpressed = uniqueDisaster[0];
 
     //create chart dimensions
@@ -117,7 +118,7 @@
     //create a scale to size bars proportionally to frame and for axis
     var yScale = d3.scaleLinear()
         .range([463, 0])
-        .domain([0, 350]);
+        .domain([0, 200]);
 
     //execute map when page loads
     window.onload = setMap();
@@ -220,6 +221,81 @@
         return stateMap;
         
     };
+
+    /*function createSequenceControls(map, csvData){
+        //extend sequence controls to circle markers
+        var SequenceControl = L.Control.extend({
+            geoJsonMarkerOptions: {
+                positions: 'topright'
+            },
+    
+    
+            //create the div for sequence controls and buttons
+            onAdd: function(map) {
+                var container = L.DomUtil.create('div', 'sequence-control-container');
+    
+                $(container).append('<input class="range-slider" type="range">');
+    
+                $(container).append('<button class="skip" id="reverse">Reverse</button>');
+                $(container).append('<button class="skip" id="forward">Forward</button>');
+    
+                $(container).on('mousedown dblclick pointerdown', function(e){
+                    L.DomEvent.stopPropagation(e);
+                });
+    
+                return container
+            }
+        });
+        //add sequnce controls to map
+        map.addControl(new SequenceControl());
+        //assign intervals to range slider
+        $('.range-slider').attr({
+            max: 16,
+            min: 0,
+            value: 0,
+            step: 1
+        });
+    
+        $('.range-slider').on
+    
+         
+    
+        //assign image files to range slider buttons
+        $('#reverse').html('<img src="img/if_arrow-left.png">');
+        $('#forward').html('<img src="img/if_arrow-right.png">');
+    
+        
+    
+        //determine the action taken when slider buttons clicked
+        $('.skip').click(function(){
+    
+            var index = $('.range-slider').val();
+    
+            if ($(this).attr('id') == 'forward'){
+                index++;
+    
+                index = index > 16 ? 0: index;
+            } else if ($(this).attr('id') == 'reverse'){
+                index--;
+    
+                index = index < 0? 16: index;
+            };
+    
+            $('.range-slider').val(index);
+    
+                        
+        });
+        //update symbols and legend when buttons clicked
+        $('.range-slider').on('input', function(){
+    
+            var index = $(this).val();
+    
+            setEnumerationUnits(map, uniqueDisaster[index]);
+            
+            
+        });
+    
+    };   */          
 
     function setEnumerationUnits(stateMap, map, path, colorScale) {
         
@@ -413,7 +489,7 @@
 
         //add attribute name options
         var attrOptions = dropdown.selectAll("attrOptions")
-            .data(attrArray)
+            .data(uniqueDisaster)
             .enter()
             .append("option")
             .attr("value", function (d) { return d })
