@@ -102,7 +102,7 @@
 
     //var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
 
-    var expressed = uniqueDisaster[0];
+    var expressed = attrArray[0];
     //var disasterExpressed = uniqueDisaster[0];
 
     //create chart dimensions
@@ -489,7 +489,7 @@
 
         //add attribute name options
         var attrOptions = dropdown.selectAll("attrOptions")
-            .data(uniqueDisaster)
+            .data(attrArray)
             .enter()
             .append("option")
             .attr("value", function (d) { return d })
