@@ -18,11 +18,12 @@
     "Landslides (2008)","Landslides (2009)","Landslides (2010)","Landslides (2011)","Landslides (2012)","Landslides (2013)","Landslides (2014)","Landslides (2015)","Landslides (2016)","Landslides (2017)",
     "Landslides (2018)","Other Disasters (2002)","Other Disasters (2003)","Other Disasters (2004)","Other Disasters (2005)","Other Disasters (2006)","Other Disasters (2007)","Other Disasters (2008)",
     "Other Disasters (2009)","Other Disasters (2010)","Other Disasters (2011)","Other Disasters (2012)", "Other Disasters (2013)","Other Disasters (2014)","Other Disasters (2015)",
-    "Other Disasters (2016)","Other Disasters (2017)","Other Disasters (2018)","ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009",
-    "ice_2010","ice_2011","ice_2012","ice_2013","ice_2014","ice_2015","ice_2016","ice_2017","ice_2018","tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006",
-    "tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018",
-    "typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
-    "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"];
+    "Other Disasters (2016)","Other Disasters (2017)","Other Disasters (2018)","Ice Storms (2002)","Ice Storms (2003)","Ice Storms (2004)","Ice Storms (2005)","Ice Storms (2006)",
+    "Ice Storms (2007)","Ice Storms (2008)","Ice Storms (2009)", "Ice Storms (2010)","Ice Storms (2011)","Ice Storms (2012)","Ice Storms (2013)","Ice Storms (2014)","Ice Storms (2015)",
+    "Ice Storms (2016)","Ice Storms (2017)","Ice Storms (2018)","Tornadoes (2002)","Tornadoes (2003)","Tornadoes (2004)","Tornadoes (2005)","Tornadoes (2006)",
+    "Tornadoes (2007)","Tornadoes (2008)","Tornadoes (2009)","Tornadoes (2010)","Tornadoes (2011)","Tornadoes (2012)","Tornadoes (2013)","Tornadoes (2014)","Tornadoes (2015)",
+    "Tornadoes (2016)","Tornadoes (2017)","Tornadoes (2018)", "Typhoons (2002)","Typhoons (2003)","Typhoons (2004)","Typhoons (2005)","Typhoons (2006)","Typhoons (2007)","Typhoons (2008)",
+    "Typhoons (2009)","Typhoons (2010)","Typhoons (2011)","Typhoons (2012)","Typhoons (2013)","Typhoons (2014)","Typhoons (2015)","Typhoons (2016)","Typhoons (2017)","Typhoons (2018)"];
 
     var disasterType = [];
     var years = [];
