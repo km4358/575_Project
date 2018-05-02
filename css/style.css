@@ -68,8 +68,9 @@ h1{
 }
 
 .chartTitle {
-     font-family: 'Archivo Narrow', sans-serif;
-    font-size: 1.25em;
+    font-family: 'Archivo Narrow', sans-serif;
+    fill: #b20000;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
