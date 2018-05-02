@@ -2,10 +2,11 @@
 
 //self-executing anonymous function
 (function () {
-
-    var attrArray = ["Severe Storms","Hurricanes","Earthquakes","Fires","Floods","Landslides","Other Disasters","Ice Storms","Tornadoes","Typhoons"];
+    //simple csv array
+    //var attrArray = ["Severe Storms","Hurricanes","Earthquakes","Fires","Floods","Landslides","Other Disasters","Ice Storms","Tornadoes","Typhoons"];
+    
     // variables that will be joined   
-    /*var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
+    var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
     "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
     "severestorms_2017","severestorms_2018","hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
     "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018",
@@ -22,7 +23,32 @@
     "typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
     "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"];
 
-    var severesStorms = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
+    var disasterType = [];
+    var years = [];
+
+    for (var i = 0; i < attrArray.length; i++) {
+        var split = attrArray[i].split("_");
+        disasterType.push(split[0]);
+        years.push(split[1]);
+    }
+
+    console.log(years);
+
+    var uniqueYears = [];
+    $.each(years, function(i, el){
+        if($.inArray(el, uniqueYears) === -1) uniqueYears.push(el);
+    });
+
+    console.log(uniqueYears);
+
+    var uniqueDisaster = [];
+    $.each(disasterType, function(i, el){
+        if($.inArray(el, uniqueDisaster) === -1) uniqueDisaster.push(el);
+    });
+
+    console.log(uniqueDisaster);
+
+    /*var severesStorms = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
     "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
     "severestorms_2017","severestorms_2018"];*/
 
@@ -76,7 +102,7 @@
     //var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
 
     var expressed = attrArray[0];
-    //var disasterExpressed = disasterArray[0];
+    //var disasterExpressed = uniqueDisaster[0];
 
     //create chart dimensions
     var chartWidth = window.innerWidth * 0.425,
@@ -126,7 +152,7 @@
         
         //use queue for asynchronous data loading
         d3.queue()
-            .defer(d3.csv, "data/disaster_test.csv")
+            .defer(d3.csv, "data/disaster_output.csv")
             .defer(d3.json, "data/us_states.topojson")
             
             .await(callback);
