@@ -6,10 +6,10 @@
     //var attrArray = ["Severe Storms","Hurricanes","Earthquakes","Fires","Floods","Landslides","Other Disasters","Ice Storms","Tornadoes","Typhoons"];
     
     // variables that will be joined   
-    var attrArray = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
-    "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
-    "severestorms_2017","severestorms_2018","hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
-    "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018",
+    var attrArray = ["Severe Storms (2002)","Severe Storms (2003)","Severe Storms (2004)","Severe Storms (2005)","Severe Storms (2006)","Severe Storms (2007)","Severe Storms (2008)",
+    "Severe Storms (2009)","Severe Storms (2010)","Severe Storms (2011)","Severe Storms (2012)","Severe Storms (2013)","Severe Storms (2014)","Severe Storms (2015)","Severe Storms (2016)",
+    "Severe Storms (2017)","Severe Storms (2018)","Hurricanes (2002)","Hurricanes (2003)","Hurricanes (2004)","Hurricanes (2005)","Hurricanes (2006)","Hurricanes (2007)","Hurricanes (2008)",
+    "Hurricanes (2009)","Hurricanes (2010)","Hurricanes (2011)","Hurricanes (2012)","Hurricanes (2013)","Hurricanes (2014)","Hurricanes (2015)","Hurricanes (2016)","Hurricanes (2017)","Hurricanes (2018)",
     "earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010",
     "earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018","fire_2002","fire_2003",
     "fire_2004","fire_2005","fire_2006","fire_2007","fire_2008","fire_2009","fire_2010","fire_2011","fire_2012","fire_2013","fire_2014","fire_2015","fire_2016","fire_2017",
@@ -27,7 +27,7 @@
     var years = [];
 
     for (var i = 0; i < attrArray.length; i++) {
-        var split = attrArray[i].split("_");
+        var split = attrArray[i].split("(");
         disasterType.push(split[0]);
         years.push(split[1]);
     }
@@ -44,9 +44,11 @@
         if($.inArray(el, uniqueDisaster) === -1) uniqueDisaster.push(el);
     });
 
-    var uniqueDisaster = {earthquake:  {disType: "Earthquakes"}, fire: {disType: "Fires"}, flood: {disType: "Floods"}, hurricane: {disType: "Hurricanes"}, landslide: {disType: "Landslides"},
+    console.log(uniqueDisaster);
+
+    /*var uniqueDisaster = {earthquake:  {disType: "Earthquakes"}, fire: {disType: "Fires"}, flood: {disType: "Floods"}, hurricane: {disType: "Hurricanes"}, landslide: {disType: "Landslides"},
     other: {disType: "Other Disasters"}, ice: {disType: "Ice Storms"}, severestorms: {disType:"Severe Storms"}, tornado: {disType: "Tornadoes"}, typhoon: {disType: "Typhoons"},
-    severestorms: {disType: "Severe Storms"}};
+    severestorms: {disType: "Severe Storms"}};*/
 
     console.log(uniqueDisaster);
 
@@ -493,7 +495,7 @@
             });
 
         var chartTitle = d3.select(".chartTitle")
-            .text("Number of " + expressed + " Declared (2002-2018)"); 
+            .text("Number of Declared " + expressed + "."); 
     };
 
     function highlight(props, csv){
@@ -547,7 +549,7 @@
             //second if statement to add attribute data only to countries being evaluated 
             if (props[expressed] > 0) {
                 labelAttribute = "<h2>" + labelName +
-                    "</h2><b>" + "Total " + expressed + " Declared: " + props[expressed] + "</b>";
+                    "</h2><b>" + "Total Declared " + expressed + " : " + props[expressed] + "</b>";
             } else {
                 labelAttribute = "<h2>" + labelName +
                     "</h2><b>" + "No disasters declared for this type." + "</b>";
