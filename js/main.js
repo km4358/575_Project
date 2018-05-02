@@ -44,63 +44,11 @@
         if($.inArray(el, uniqueDisaster) === -1) uniqueDisaster.push(el);
     });
 
-    var uniqueDisaster = {earthquake:  "Earthquakes", fire: "Fires", flood: "Floods", hurricane: "Hurricanes", landslide: "Landslides", other: "Other Disasters",
-    ice: "Ice Storms", severestorms: "Severe Storms", tornado: "Tornadoes", typhoon: "Typhoons", severestorms: "Severe Storms"};
+    var uniqueDisaster = {earthquake:  {disType: "Earthquakes"}, fire: {disType: "Fires"}, flood: {disType: "Floods"}, hurricane: {disType: "Hurricanes"}, landslide: {disType: "Landslides"},
+    other: {disType: "Other Disasters"}, ice: {disType: "Ice Storms"}, severestorms: {disType:"Severe Storms"}, tornado: {disType: "Tornadoes"}, typhoon: {disType: "Typhoons"},
+    severestorms: {disType: "Severe Storms"}};
 
     console.log(uniqueDisaster);
-
-    /*var severesStorms = ["severestorms_2002","severestorms_2003","severestorms_2004","severestorms_2005","severestorms_2006","severestorms_2007","severestorms_2008",
-    "severestorms_2009","severestorms_2010","severestorms_2011","severestorms_2012","severestorms_2013","severestorms_2014","severestorms_2015","severestorms_2016",
-    "severestorms_2017","severestorms_2018"];*/
-
-    /*var hurricane = ["hurricane_2002","hurricane_2003","hurricane_2004","hurricane_2005","hurricane_2006","hurricane_2007","hurricane_2008",
-    "hurricane_2009","hurricane_2010","hurricane_2011","hurricane_2012","hurricane_2013","hurricane_2014","hurricane_2015","hurricane_2016","hurricane_2017","hurricane_2018"];*/
-
-   /*  var earthquake = ["earthquake_2002","earthquake_2003","earthquake_2004","earthquake_2005","earthquake_2006","earthquake_2007","earthquake_2008","earthquake_2009","earthquake_2010",
-    "earthquake_2011","earthquake_2012","earthquake_2013","earthquake_2014","earthquake_2015","earthquake_2016","earthquake_2017","earthquake_2018"]; */
-
-   
-
-   /*  var fire = ["fire_2002","fire_2003",
-    "fire_2004","fire_2005","fire_2006","fire_2007","fire_2008","fire_2009","fire_2010","fire_2011","fire_2012","fire_2013","fire_2014","fire_2015","fire_2016","fire_2017",
-    "fire_2018"];
- */
-   
-
-    /* var flood = ["flood_2002","flood_2003","flood_2004","flood_2005","flood_2006","flood_2007","flood_2008","flood_2009","flood_2010","flood_2011","flood_2012","flood_2013",
-    "flood_2014","flood_2015","flood_2016","flood_2017","flood_2018"]; */
-
-   
-
-    /* var landslide = ["landslide_2002","landslide_2003","landslide_2004","landslide_2005","landslide_2006","landslide_2007",
-    "landslide_2008","landslide_2009","landslide_2010","landslide_2011","landslide_2012","landslide_2013","landslide_2014","landslide_2015","landslide_2016","landslide_2017",
-    "landslide_2018"];
- */
-    
-
-    /* var other = ["other_2002","other_2003","other_2004","other_2005","other_2006","other_2007","other_2008","other_2009","other_2010","other_2011","other_2012",
-    "other_2013","other_2014","other_2015","other_2016","other_2017","other_2018"];
- */
-    
-
-    /* var ice = ["ice_2002","ice_2003","ice_2004","ice_2005","ice_2006","ice_2007","ice_2008","ice_2009",
-    "ice_2010","ice_2011","ice_2012","ice_2013","ice_2014","ice_2015","ice_2016","ice_2017","ice_2018"];
- */
-    
-
-    /* var tornado = ["tornado_2002","tornado_2003","tornado_2004","tornado_2005","tornado_2006",
-    "tornado_2007","tornado_2008","tornado_2009","tornado_2010","tornado_2011","tornado_2012","tornado_2013","tornado_2014","tornado_2015","tornado_2016","tornado_2017","tornado_2018"]; */
-
-    
-
-    /* var typhoon = ["typhoon_2002","typhoon_2003","typhoon_2004","typhoon_2005","typhoon_2006","typhoon_2007","typhoon_2008","typhoon_2009","typhoon_2010","typhoon_2011","typhoon_2012",
-    "typhoon_2013","typhoon_2014","typhoon_2015","typhoon_2016","typhoon_2017","typhoon_2018"]; */
-
-   
-
-    //var disasterArray = [earthquake, fire, flood, hurricane, landslide, other, ice, severesStorms, tornado, typhoon];
-
-    //var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
 
     var expressed = attrArray[0];
     //var disasterExpressed = uniqueDisaster[0];
