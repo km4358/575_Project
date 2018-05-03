@@ -288,7 +288,10 @@
 
         //create color generator
         var colorScale = d3.scaleThreshold()
+            //.domain(0,1,10,25,50,100)
             .range(colorClasses);
+
+            console.log(colorScale);
 
 
         
@@ -298,9 +301,20 @@
             var val = parseFloat(data[i][expressed])
             domainArray.push(val);
         };
+
+        var removeZero = 0;
+
+        domainArray = $.grep(domainArray, function(value){
+            return value != removeZero;
+        });
+
+        
+        console.log(domainArray);
             
         //cluster data using ckmeans clustering algorithm to create natural breaks
         var clusters = ss.ckmeans(domainArray, 6);
+
+        console.log(clusters);
 
         //reset domain array to cluster minimums
         domainArray = clusters.map(function (d) {
