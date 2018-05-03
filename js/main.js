@@ -23,7 +23,7 @@
     "Tornadoes (2016)","Tornadoes (2017)","Tornadoes (2018)"];
 
     var disasterType = [];
-    var years = [];
+    var years = ['2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'];
 
     for (var i = 0; i < attrArray.length; i++) {
         var split = attrArray[i].split("(");
@@ -31,12 +31,14 @@
         years.push(split[1]);
     }
 
-    var uniqueYears = [];
+    /*var uniqueYears = [];
     $.each(years, function(i, el){
         if($.inArray(el, uniqueYears) === -1) uniqueYears.push(el);
-    });
+    });*/
 
-    console.log(uniqueYears);
+
+    var init_year = '2002';
+
 
     var uniqueDisaster = [];
     $.each(disasterType, function(i, el){
@@ -72,6 +74,17 @@
     //execute map when page loads
     window.onload = setMap();
 
+
+    function setSlider(csvData, map, changeAttribute) {
+        d3.select("body").insert("p", ":first-child").append("input")
+            .attr("type", "range")
+            .attr("min", "2002")
+            .attr("max", "2018")
+            .attr("value", years)
+            .attr("id", "year");
+
+        d3.select("body").insert("h2", ":first-child").text("Disaster Year: " + init_year);
+    };
     //setup choropleth map
     function setMap() {
         
@@ -124,6 +137,7 @@
             //create color scale
             var colorScale = makeColorScale(csvData);
 
+            setSlider(csvData);
             //add enumeration units
             setEnumerationUnits(stateMap, map, path, colorScale);
 
