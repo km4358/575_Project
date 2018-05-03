@@ -324,7 +324,7 @@
                        var clusters = ss.ckmeans(domainArray, 1);
                    } else {
                        if (domainArray.length == 0) {
-                           var cluster = 0;
+                           var clusters = 0;
                        };
                    };
                };
@@ -336,7 +336,7 @@
         console.log(clusters);
 
         //reset domain array to cluster minimums
-        if (cluster > 0){domainArray = clusters.map(function (d) {
+        if (clusters > 0){domainArray = clusters.map(function (d) {
             return d3.min(d);
         })};
 
