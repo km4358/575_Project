@@ -504,7 +504,7 @@
 
         //highlight enumeration units and bars
         var selected = d3.selectAll("." + props.STUSPS)
-            .style("stroke", "#54278f")
+            .style("stroke", "#ffff4d")
             .style("stroke-width", "3");
 
             setLabel(props);
