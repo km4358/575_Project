@@ -16,14 +16,11 @@
     "Fires (2018)","Floods (2002)","Floods (2003)","Floods (2004)","Floods (2005)","Floods (2006)","Floods (2007)","Floods (2008)","Floods (2009)","Floods (2010)","Floods (2011)","Floods (2012)","Floods (2013)",
     "Floods (2014)","Floods (2015)","Floods (2016)","Floods (2017)","Floods (2018)","Landslides (2002)","Landslides (2003)","Landslides (2004)","Landslides (2005)","Landslides (2006)","Landslides (2007)",
     "Landslides (2008)","Landslides (2009)","Landslides (2010)","Landslides (2011)","Landslides (2012)","Landslides (2013)","Landslides (2014)","Landslides (2015)","Landslides (2016)","Landslides (2017)",
-    "Landslides (2018)","Other Disasters (2002)","Other Disasters (2003)","Other Disasters (2004)","Other Disasters (2005)","Other Disasters (2006)","Other Disasters (2007)","Other Disasters (2008)",
-    "Other Disasters (2009)","Other Disasters (2010)","Other Disasters (2011)","Other Disasters (2012)", "Other Disasters (2013)","Other Disasters (2014)","Other Disasters (2015)",
-    "Other Disasters (2016)","Other Disasters (2017)","Other Disasters (2018)","Ice Storms (2002)","Ice Storms (2003)","Ice Storms (2004)","Ice Storms (2005)","Ice Storms (2006)",
+    "Landslides (2018)", "Ice Storms (2002)","Ice Storms (2003)","Ice Storms (2004)","Ice Storms (2005)","Ice Storms (2006)",
     "Ice Storms (2007)","Ice Storms (2008)","Ice Storms (2009)", "Ice Storms (2010)","Ice Storms (2011)","Ice Storms (2012)","Ice Storms (2013)","Ice Storms (2014)","Ice Storms (2015)",
     "Ice Storms (2016)","Ice Storms (2017)","Ice Storms (2018)","Tornadoes (2002)","Tornadoes (2003)","Tornadoes (2004)","Tornadoes (2005)","Tornadoes (2006)",
     "Tornadoes (2007)","Tornadoes (2008)","Tornadoes (2009)","Tornadoes (2010)","Tornadoes (2011)","Tornadoes (2012)","Tornadoes (2013)","Tornadoes (2014)","Tornadoes (2015)",
-    "Tornadoes (2016)","Tornadoes (2017)","Tornadoes (2018)", "Typhoons (2002)","Typhoons (2003)","Typhoons (2004)","Typhoons (2005)","Typhoons (2006)","Typhoons (2007)","Typhoons (2008)",
-    "Typhoons (2009)","Typhoons (2010)","Typhoons (2011)","Typhoons (2012)","Typhoons (2013)","Typhoons (2014)","Typhoons (2015)","Typhoons (2016)","Typhoons (2017)","Typhoons (2018)"];
+    "Tornadoes (2016)","Tornadoes (2017)","Tornadoes (2018)"];
 
     var disasterType = [];
     var years = [];
@@ -281,6 +278,7 @@
     function makeColorScale(data){
         //assign colors
         var colorClasses = [
+        "#FFFFFF",
         "#ffb3b3",
         "#ff8080",
         "#ff1a1a",
@@ -302,7 +300,7 @@
         };
             
         //cluster data using ckmeans clustering algorithm to create natural breaks
-        var clusters = ss.ckmeans(domainArray, 5);
+        var clusters = ss.ckmeans(domainArray, 6);
 
         //reset domain array to cluster minimums
         domainArray = clusters.map(function (d) {
