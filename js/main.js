@@ -291,7 +291,6 @@
             //.domain(0,1,10,25,50,100)
             .range(colorClasses);
 
-            console.log(colorScale);
 
 
         
@@ -312,17 +311,37 @@
         console.log(domainArray);
             
         //cluster data using ckmeans clustering algorithm to create natural breaks
-        var clusters = ss.ckmeans(domainArray, 6);
+        if (domainArray.length >= 4){
+            var clusters = ss.ckmeans(domainArray, 4);
+        } else {
+           if (domainArray.length == 3) {
+               var clusters = ss.ckmeans(domainArray, 3);
+           } else {
+               if (domainArray.length == 2) {
+                   var clusters = ss.ckmeans(domainArray, 2);
+               } else {
+                   if (domainArray.length == 1) {
+                       var clusters = ss.ckmeans(domainArray, 1);
+                   } else {
+                       if (domainArray.length == 0) {
+                           var cluster = 0;
+                       };
+                   };
+               };
+           };
+
+        };
+        
 
         console.log(clusters);
 
         //reset domain array to cluster minimums
-        domainArray = clusters.map(function (d) {
+        if (cluster > 0){domainArray = clusters.map(function (d) {
             return d3.min(d);
-        });
+        })};
 
         //remove first value from domain array to create class breakpoints
-        domainArray.shift();
+        //domainArray.shift();
 
         //assign array of last 4 clusters minimum as domain
         colorScale.domain(domainArray);
