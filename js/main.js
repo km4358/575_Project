@@ -327,7 +327,7 @@
         if (typeof val === "number" && !isNaN(val)) {
             return colorScale(val);
         } else {
-            return "#FFFF";
+            return "#FFF";
         }
     };    
 
