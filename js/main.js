@@ -1,10 +1,7 @@
-/* JS by Kerry C. McAlister, 2018 */
+/* JS by Kerry C. McAlister, Carlos Crespo, Ethan Reuse 2018 */
 
 //self-executing anonymous function
 (function () {
-    //simple csv array
-    //var attrArray = ["Severe Storms","Hurricanes","Earthquakes","Fires","Floods","Landslides","Other Disasters","Ice Storms","Tornadoes","Typhoons"];
-    
     // variables that will be joined   
     var attrArray = ["Severe Storms (2002)","Severe Storms (2003)","Severe Storms (2004)","Severe Storms (2005)","Severe Storms (2006)","Severe Storms (2007)","Severe Storms (2008)",
     "Severe Storms (2009)","Severe Storms (2010)","Severe Storms (2011)","Severe Storms (2012)","Severe Storms (2013)","Severe Storms (2014)","Severe Storms (2015)","Severe Storms (2016)",
@@ -31,31 +28,13 @@
         years.push(split[1]);
     }
 
-    /*var uniqueYears = [];
-    $.each(years, function(i, el){
-        if($.inArray(el, uniqueYears) === -1) uniqueYears.push(el);
-    });*/
-
-
-    var init_year = '2002';
-
-
     var uniqueDisaster = [];
     $.each(disasterType, function(i, el){
         if($.inArray(el, uniqueDisaster) === -1) uniqueDisaster.push(el);
     });
 
-    console.log(uniqueDisaster);
-
-    /*var uniqueDisaster = {earthquake:  {disType: "Earthquakes"}, fire: {disType: "Fires"}, flood: {disType: "Floods"}, hurricane: {disType: "Hurricanes"}, landslide: {disType: "Landslides"},
-    other: {disType: "Other Disasters"}, ice: {disType: "Ice Storms"}, severestorms: {disType:"Severe Storms"}, tornado: {disType: "Tornadoes"}, typhoon: {disType: "Typhoons"},
-    severestorms: {disType: "Severe Storms"}};*/
-
-    console.log(uniqueDisaster);
-
     var expressed = attrArray[0];
-    //var disasterExpressed = uniqueDisaster[0];
-
+    
     //create chart dimensions
     var chartWidth = window.innerWidth * 0.425,
         chartHeight = 473,
@@ -74,17 +53,6 @@
     //execute map when page loads
     window.onload = setMap();
 
-
-    function setSlider(csvData, map, changeAttribute) {
-        d3.select("body").insert("p", ":first-child").append("input")
-            .attr("type", "range")
-            .attr("min", "2002")
-            .attr("max", "2018")
-            .attr("value", years)
-            .attr("id", "year");
-
-        d3.select("body").insert("h2", ":first-child").text("Disaster Year: " + init_year);
-    };
     //setup choropleth map
     function setMap() {
         
@@ -123,22 +91,16 @@
             
         function callback(error, csvData, state) {
 
-            //call set graticule function
-            //setGraticule(map, path);
-
             //translate topojson data 
             var stateMap = topojson.feature(state, state.objects.us_states).features;
 
             //join topojson and csv data
             stateMap = joinData(stateMap, csvData);
 
-            //console.log(stateJoin);
-
             //create color scale
             var colorScale = makeColorScale(csvData);
 
-            setSlider(csvData);
-            //add enumeration units
+                        //add enumeration units
             setEnumerationUnits(stateMap, map, path, colorScale);
 
             //add coordinated visualization
@@ -152,10 +114,6 @@
 
             //update charts when data changes
             updateChart(csvData);
-
-            
-            
-            
 
         };
     };
@@ -185,84 +143,9 @@
         
     };
 
-    /*function createSequenceControls(map, csvData){
-        //extend sequence controls to circle markers
-        var SequenceControl = L.Control.extend({
-            geoJsonMarkerOptions: {
-                positions: 'topright'
-            },
-    
-    
-            //create the div for sequence controls and buttons
-            onAdd: function(map) {
-                var container = L.DomUtil.create('div', 'sequence-control-container');
-    
-                $(container).append('<input class="range-slider" type="range">');
-    
-                $(container).append('<button class="skip" id="reverse">Reverse</button>');
-                $(container).append('<button class="skip" id="forward">Forward</button>');
-    
-                $(container).on('mousedown dblclick pointerdown', function(e){
-                    L.DomEvent.stopPropagation(e);
-                });
-    
-                return container
-            }
-        });
-        //add sequnce controls to map
-        map.addControl(new SequenceControl());
-        //assign intervals to range slider
-        $('.range-slider').attr({
-            max: 16,
-            min: 0,
-            value: 0,
-            step: 1
-        });
-    
-        $('.range-slider').on
-    
-         
-    
-        //assign image files to range slider buttons
-        $('#reverse').html('<img src="img/if_arrow-left.png">');
-        $('#forward').html('<img src="img/if_arrow-right.png">');
-    
-        
-    
-        //determine the action taken when slider buttons clicked
-        $('.skip').click(function(){
-    
-            var index = $('.range-slider').val();
-    
-            if ($(this).attr('id') == 'forward'){
-                index++;
-    
-                index = index > 16 ? 0: index;
-            } else if ($(this).attr('id') == 'reverse'){
-                index--;
-    
-                index = index < 0? 16: index;
-            };
-    
-            $('.range-slider').val(index);
-    
-                        
-        });
-        //update symbols and legend when buttons clicked
-        $('.range-slider').on('input', function(){
-    
-            var index = $(this).val();
-    
-            setEnumerationUnits(map, uniqueDisaster[index]);
-            
-            
-        });
-    
-    };   */          
-
     function setEnumerationUnits(stateMap, map, path, colorScale) {
         
-        //add countries for analysis to the map
+        //add states for analysis to the map
         var disasterStates = map.selectAll(".disasterStates")
             .data(stateMap)
             .enter()
@@ -302,12 +185,8 @@
 
         //create color generator
         var colorScale = d3.scaleThreshold()
-            //.domain(0,1,10,25,50,100)
             .range(colorClasses);
 
-
-
-        
         //build array of values
         var domainArray = [];
         for (var i = 0; i < data.length; i++) {
@@ -354,13 +233,9 @@
             return d3.min(d);
         })};
 
-        //remove first value from domain array to create class breakpoints
-        //domainArray.shift();
-
         //assign array of last 4 clusters minimum as domain
         colorScale.domain(domainArray);
 
-        
         return colorScale;
     };
 
@@ -376,24 +251,6 @@
         }
     };    
 
-    //create graticule
-    /*function setGraticule(map, path) {
-        var graticule = d3.geoGraticule()
-            .step([5, 5]);
-
-        var gratBackground = map.append("path")
-            .datum(graticule.outline())
-            .attr("class", "gratBackground")
-            .attr("d", path)
-
-        var gratlines = map.selectAll(".gratlines")
-            .data(graticule.lines())
-            .enter()
-            .append("path")
-            .attr("class", "gratlines")
-            .attr("d", path);
-        
-    };*/
 
     function setChart(csvData, colorScale) {
         
@@ -584,8 +441,7 @@
         
         //name attributes filtered to replace underscore with space 
         var labelName = props.NAME;
-        //var labelParse = labelName.replace(/_/g, ' '); 
-
+        
         //if statement to specifically add attributes once dropdown menu item is activated 
         var labelAttribute;
         if ([expressed] != expressed) {
@@ -608,10 +464,7 @@
             .attr("class", "infolabel")
             .attr("id", props.NAME + "_label")
             .html(labelAttribute);
-    
-        /*var stateName = infolabel.append("div")
-            .attr("class", "labelname")
-            .html(props.NAME);*/
+   
     };
 
     function moveLabel(){
