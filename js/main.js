@@ -5,7 +5,7 @@
 //self-executing anonymous function
 (function () {
     // Creating pseudo-global variables for the map and the bar chart
-    var disasterType = ["Severe Storms","Hurricane Storms","Earthquake Storms","Fire Storms","Floods","Landslides","Ice Storms","Tornadoes"];
+    var disasterType = ["Severe Storms","Hurricane Storms","Earthquake","Fire","Floods","Landslides","Ice Storms","Tornadoes"];
     var years = ["2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
     
     var uniqueDisaster = disasterType[0]
