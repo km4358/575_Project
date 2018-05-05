@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 //self-executing anonymous function
 (function () {
@@ -15,6 +16,44 @@
     var expressed = attrArray[0];
         
     
+=======
+/* JS by Kerry C. McAlister, Carlos Crespo, Ethan Reuse 2018 */
+
+//self-executing anonymous function
+(function () {
+    // variables that will be joined   
+    var attrArray = ["Severe Storms (2002)","Severe Storms (2003)","Severe Storms (2004)","Severe Storms (2005)","Severe Storms (2006)","Severe Storms (2007)","Severe Storms (2008)",
+    "Severe Storms (2009)","Severe Storms (2010)","Severe Storms (2011)","Severe Storms (2012)","Severe Storms (2013)","Severe Storms (2014)","Severe Storms (2015)","Severe Storms (2016)",
+    "Severe Storms (2017)","Severe Storms (2018)","Hurricanes (2002)","Hurricanes (2003)","Hurricanes (2004)","Hurricanes (2005)","Hurricanes (2006)","Hurricanes (2007)","Hurricanes (2008)",
+    "Hurricanes (2009)","Hurricanes (2010)","Hurricanes (2011)","Hurricanes (2012)","Hurricanes (2013)","Hurricanes (2014)","Hurricanes (2015)","Hurricanes (2016)","Hurricanes (2017)","Hurricanes (2018)",
+    "Earthquakes (2002)","Earthquakes (2003)","Earthquakes (2004)","Earthquakes (2005)","Earthquakes (2006)","Earthquakes (2007)","Earthquakes (2008)","Earthquakes (2009)","Earthquakes (2010)",
+    "Earthquakes (2011)","Earthquakes (2012)","Earthquakes (2013)","Earthquakes (2014)","Earthquakes (2015)","Earthquakes (2016)","Earthquakes (2017)","Earthquakes (2018)","Fires (2002)","Fires (2003)",
+    "Fires (2004)","Fires (2005)","Fires (2006)","Fires (2007)","Fires (2008)","Fires (2009)","Fires (2010)","Fires (2011)","Fires (2012)","Fires (2013)","Fires (2014)","Fires (2015)","Fires (2016)","Fires (2017)",
+    "Fires (2018)","Floods (2002)","Floods (2003)","Floods (2004)","Floods (2005)","Floods (2006)","Floods (2007)","Floods (2008)","Floods (2009)","Floods (2010)","Floods (2011)","Floods (2012)","Floods (2013)",
+    "Floods (2014)","Floods (2015)","Floods (2016)","Floods (2017)","Floods (2018)","Landslides (2002)","Landslides (2003)","Landslides (2004)","Landslides (2005)","Landslides (2006)","Landslides (2007)",
+    "Landslides (2008)","Landslides (2009)","Landslides (2010)","Landslides (2011)","Landslides (2012)","Landslides (2013)","Landslides (2014)","Landslides (2015)","Landslides (2016)","Landslides (2017)",
+    "Landslides (2018)", "Ice Storms (2002)","Ice Storms (2003)","Ice Storms (2004)","Ice Storms (2005)","Ice Storms (2006)",
+    "Ice Storms (2007)","Ice Storms (2008)","Ice Storms (2009)", "Ice Storms (2010)","Ice Storms (2011)","Ice Storms (2012)","Ice Storms (2013)","Ice Storms (2014)","Ice Storms (2015)",
+    "Ice Storms (2016)","Ice Storms (2017)","Ice Storms (2018)","Tornadoes (2002)","Tornadoes (2003)","Tornadoes (2004)","Tornadoes (2005)","Tornadoes (2006)",
+    "Tornadoes (2007)","Tornadoes (2008)","Tornadoes (2009)","Tornadoes (2010)","Tornadoes (2011)","Tornadoes (2012)","Tornadoes (2013)","Tornadoes (2014)","Tornadoes (2015)",
+    "Tornadoes (2016)","Tornadoes (2017)","Tornadoes (2018)"];
+
+    var disasterType = [];
+    var years = ['2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'];
+
+    for (var i = 0; i < attrArray.length; i++) {
+        var split = attrArray[i].split("(");
+        disasterType.push(split[0]);
+        years.push(split[1]);
+    }
+
+    var uniqueDisaster = [];
+    $.each(disasterType, function(i, el){
+        if($.inArray(el, uniqueDisaster) === -1) uniqueDisaster.push(el);
+    });
+
+    var expressed = attrArray[0];
+>>>>>>> df70f132b7368ce40e92ee8b6573b280ce44f0cb
     
     //create chart dimensions
     var chartWidth = window.innerWidth * 0.425,
@@ -71,21 +110,20 @@
             
         function callback(error, csvData, state) {
 
-            //call set graticule function
-            //setGraticule(map, path);
-
             //translate topojson data 
             var stateMap = topojson.feature(state, state.objects.us_states).features;
 
             //join topojson and csv data
             stateMap = joinData(stateMap, csvData);
 
-            //console.log(stateJoin);
-
             //create color scale
             var colorScale = makeColorScale(csvData);
 
+<<<<<<< HEAD
             //add enumeration units
+=======
+                        //add enumeration units
+>>>>>>> df70f132b7368ce40e92ee8b6573b280ce44f0cb
             setEnumerationUnits(stateMap, map, path, colorScale);
 
             //add coordinated visualization
@@ -130,7 +168,7 @@
 
     function setEnumerationUnits(stateMap, map, path, colorScale) {
         
-        //add countries for analysis to the map
+        //add states for analysis to the map
         var disasterStates = map.selectAll(".disasterStates")
             .data(stateMap)
             .enter()
@@ -186,13 +224,15 @@
             return d3.min(d);
         });
 
+<<<<<<< HEAD
         //remove first value from domain array to create class breakpoints
         domainArray.shift();
 
+=======
+>>>>>>> df70f132b7368ce40e92ee8b6573b280ce44f0cb
         //assign array of last 4 clusters minimum as domain
         colorScale.domain(domainArray);
 
-        
         return colorScale;
     };
 
@@ -208,24 +248,6 @@
         }
     };    
 
-    //create graticule
-    /*function setGraticule(map, path) {
-        var graticule = d3.geoGraticule()
-            .step([5, 5]);
-
-        var gratBackground = map.append("path")
-            .datum(graticule.outline())
-            .attr("class", "gratBackground")
-            .attr("d", path)
-
-        var gratlines = map.selectAll(".gratlines")
-            .data(graticule.lines())
-            .enter()
-            .append("path")
-            .attr("class", "gratlines")
-            .attr("d", path);
-        
-    };*/
 
     function setChart(csvData, colorScale) {
         
@@ -447,8 +469,7 @@
         
         //name attributes filtered to replace underscore with space 
         var labelName = props.NAME;
-        //var labelParse = labelName.replace(/_/g, ' '); 
-
+        
         //if statement to specifically add attributes once dropdown menu item is activated 
         var labelAttribute;
         if ([expressed] != expressed) {
@@ -471,10 +492,7 @@
             .attr("class", "infolabel")
             .attr("id", props.NAME + "_label")
             .html(labelAttribute);
-    
-        /*var stateName = infolabel.append("div")
-            .attr("class", "labelname")
-            .html(props.NAME);*/
+   
     };
 
     function moveLabel(){
