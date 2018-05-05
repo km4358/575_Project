@@ -1,3 +1,6 @@
+/* JS by Kerry C. McAlister, Carlos Crespo, Ethan Reuse 2018 */
+
+
 
 //self-executing anonymous function
 (function () {
