@@ -20,10 +20,7 @@ h1{
 
 #descript{
     font-family: 'Archivo Narrow', sans-serif;
-<<<<<<< HEAD
 	position: relative;
-=======
->>>>>>> 1f585da1ce6c9ec8b0eeba9c00d6245625ec58e7
     color:#b20000;
     font-weight: 300;
     font-size: 0.85em;
@@ -31,7 +28,6 @@ h1{
 	
 }
 
-<<<<<<< HEAD
 .dropdown {
     position: absolute;
     top: 100px;
@@ -45,8 +41,6 @@ h1{
     box-shadow: 2px 2px 4px #999;
 }
 
-=======
->>>>>>> 1f585da1ce6c9ec8b0eeba9c00d6245625ec58e7
 #credit{
     position: fixed;
     bottom: 0px;
